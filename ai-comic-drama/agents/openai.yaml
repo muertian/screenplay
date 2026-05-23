@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI漫剧生成"
+  short_description: "用$imagegen生成/返修全部图片，用Mimo音频、Seedance多功能参考和即梦CLI制作AI漫剧交付包。"
+  default_prompt: "Use $ai-comic-drama 按瘦身版路由推进我的AI漫剧项目：先读取当前运行设置和当前任务相关生产包，只加载本阶段需要的reference；根据我给出的范围推进剧情分镜、锁定资产、$imagegen关键帧、关键帧验收网页、Mimo音频、Seedance上传包、即梦CLI视频提交/下载或质检返修。所有静态图片、参考图、关键帧和返修图必须使用 $imagegen built-in image_gen，并写入 imagegen staging/source record；批量生产不提交视频；正式视频提交前必须确认关键帧已通过、固定4个SHOT/4张时序帧、Seedance模式为智能多帧/多模态参考、Seedance图片默认不超过7张且绝不超过9张、音频2-15秒且总上传音频不超过15秒，并先打开上传包viewer给我确认；视频上传/查询/下载必须通过本地 dreamina CLI，下载后先Seedan升1080p再升60fps。"

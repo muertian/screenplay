@@ -1,0 +1,110 @@
+{
+  "title": "S01E01_SEG001 上传包核对",
+  "version": "20260522-184051",
+  "built_at": "2026-05-22T10:40:51.723986+00:00",
+  "package_dir": "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\upload_packages\\S01E01_SEG001",
+  "segment_id": "S01E01_SEG001",
+  "route": "keyframe_multiref_seedance",
+  "execution_provider": "dreamina_cli_seedance2",
+  "submission_mode": "智能多帧/多模态参考",
+  "model_version": "seedance2.0",
+  "duration": 15,
+  "image_upload_count": 7,
+  "audio_upload_count": 0,
+  "images": [
+    {
+      "slot": "@图片1",
+      "path": "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\upload_packages\\S01E01_SEG001\\keyframes\\S01E01_SEG001_SHOT01_v01.png",
+      "exists": true,
+      "label": "S01E01_SEG001_SHOT01_v01",
+      "role": "时序关键帧：0-4秒，陆沉惊醒，单枚空白晶片",
+      "shot_id": "SHOT01",
+      "duration_seconds": "4",
+      "text": ""
+    },
+    {
+      "slot": "@图片2",
+      "path": "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\upload_packages\\S01E01_SEG001\\keyframes\\S01E01_SEG001_SHOT02_v01.png",
+      "exists": true,
+      "label": "S01E01_SEG001_SHOT02_v01",
+      "role": "时序关键帧：4-8秒，身份牌不可读，建立失忆",
+      "shot_id": "SHOT02",
+      "duration_seconds": "4",
+      "text": ""
+    },
+    {
+      "slot": "@图片3",
+      "path": "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\upload_packages\\S01E01_SEG001\\keyframes\\S01E01_SEG001_SHOT03_v01.png",
+      "exists": true,
+      "label": "S01E01_SEG001_SHOT03_v01",
+      "role": "时序关键帧：8-12秒，废城远景和方舟光柱",
+      "shot_id": "SHOT03",
+      "duration_seconds": "4",
+      "text": ""
+    },
+    {
+      "slot": "@图片4",
+      "path": "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\upload_packages\\S01E01_SEG001\\keyframes\\S01E01_SEG001_SHOT04_v01.png",
+      "exists": true,
+      "label": "S01E01_SEG001_SHOT04_v01",
+      "role": "时序关键帧：12-15秒，耳机恢复，陆沉警觉起身",
+      "shot_id": "SHOT04",
+      "duration_seconds": "3",
+      "text": ""
+    },
+    {
+      "slot": "@图片5",
+      "path": "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\upload_packages\\S01E01_SEG001\\references\\characters\\CHAR_LC_ref_v01.png",
+      "exists": true,
+      "label": "CHAR_LC_ref_v01",
+      "role": "角色参考：锁定陆沉脸、发型、服装、体态",
+      "shot_id": "",
+      "duration_seconds": "",
+      "text": ""
+    },
+    {
+      "slot": "@图片6",
+      "path": "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\upload_packages\\S01E01_SEG001\\references\\scenes\\SCENE_WRECK_CLEAN_REF.png",
+      "exists": true,
+      "label": "SCENE_WRECK_CLEAN_REF",
+      "role": "当前场景参考：锁定废弃装甲车车厢空间、光线、材质和方向",
+      "shot_id": "",
+      "duration_seconds": "",
+      "text": ""
+    },
+    {
+      "slot": "@图片7",
+      "path": "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\upload_packages\\S01E01_SEG001\\references\\props\\PROP_BLANK_CHIP_v01.png",
+      "exists": true,
+      "label": "PROP_BLANK_CHIP_v01",
+      "role": "核心道具参考：锁定空白记忆晶片外形、材质和唯一性",
+      "shot_id": "",
+      "duration_seconds": "",
+      "text": ""
+    }
+  ],
+  "audio_for_video": [],
+  "audio_for_postmix": [],
+  "omitted_references": [
+    {
+      "name": "PROP_ID_TAG_v01",
+      "path": "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\upload_packages\\S01E01_SEG001\\..\\..\\references\\props\\PROP_ID_TAG_v01.png",
+      "reason": "7图软上限内优先保留四张时序关键帧、主角、当前车厢场景和空白晶片；身份牌已由SHOT02关键帧承载。",
+      "compensation": "提示词明确身份牌不可读、手指发抖、金属轻响。"
+    },
+    {
+      "name": "PROP_EARPIECE_v01",
+      "path": "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\upload_packages\\S01E01_SEG001\\..\\..\\references\\props\\PROP_EARPIECE_v01.png",
+      "reason": "耳机只服务SHOT04动作，已由SHOT04关键帧和提示词描述承载。",
+      "compensation": "提示词写明破损耳机恢复通讯、无屏幕、陆沉侧头警觉。"
+    },
+    {
+      "name": "SCENE_WASTE_CITY_CLEAN_REF",
+      "path": "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\upload_packages\\S01E01_SEG001\\..\\..\\references\\scenes\\SCENE_WASTE_CITY_CLEAN_REF.png",
+      "reason": "废城和方舟光柱已经在SHOT03时序关键帧内出现，避免未来场景参考干扰车厢主空间。",
+      "compensation": "提示词写明方舟光柱固定在右前方、废城低饱和远景。"
+    }
+  ],
+  "prompt_path": "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\upload_packages\\S01E01_SEG001\\prompts\\00_seedance多功能参考提示词.txt",
+  "prompt_text": "﻿【参考内容说明】\n@图片1-@图片4 是 S01E01_SEG001 按镜头顺序上传的时序关键帧：@图片1=SHOT01 陆沉在废弃装甲车中惊醒；@图片2=SHOT02 身份牌不可读，建立失忆；@图片3=SHOT03 废城远景和方舟光柱；@图片4=SHOT04 耳机恢复，陆沉警觉起身。它们只作为时间顺序、画面状态和动作节拍参考，共同用于理解15秒内的连续视频节奏；不要生成拼贴、分屏、漫画格、幻灯片或图片序列。\n@图片5 是陆沉角色参考，只锁定脸、短黑发、左眉浅疤、灰绿色破损战术外套和体态。\n@图片6 是废弃装甲车车厢干净场景参考，只锁定空间结构、冷光、破损金属材质和方向，不要把它渲染成参考图或场景设定图。\n@图片7 是空白记忆晶片道具参考，只锁定外形、比例、透明材质和单枚唯一性。\n\n【视频内容】\n镜头1：轻微手持的低机位近景，陆沉在废弃装甲车座椅上猛然醒来，灰尘从车顶落下，右手紧攥一枚透明空白晶片，眼神空白，呼吸急促，肩膀紧绷。<低频耳鸣><远处风声>\n镜头2：镜头慢推到手部和胸口，陆沉翻看磨损金属身份牌，身份牌表面不可读，手指发抖，晶片仍被另一只手护住。<金属身份牌轻响>\n镜头3：镜头平移到车窗外，低饱和废城延伸到远处，白色方舟光柱从城市尽头升起；陆沉半跪在车窗边看向右前方远处，身体准备起身。<方舟广播模糊响起>\n镜头4：中近景侧逆光，破损耳机恢复微弱通讯，陆沉猛地侧头，眼神从迷茫变警觉，下颌收紧，肩膀准备发力冲出车厢。破损耳机里传出 {把空白晶片带到方舟。} no music, no subtitles.\n\n【连续性要求】\n只出现一个陆沉；空白晶片只出现一枚；身份牌不可读；耳机没有屏幕；车厢空间方向不翻转；方舟光柱固定在右前方；整体保持电影感写实漫画、低饱和废土、冷白光和强阴影；不要出现血腥、拼贴、分屏、画中画、参考图入画、重复人物或复制道具。不要在视频画面中出现文字信息。\n"
+}

@@ -1,0 +1,15 @@
+{
+    "confirmed":  true,
+    "confirmed_at":  "2026-05-22",
+    "confirmed_by":  "user",
+    "source_message":  "确认",
+    "segment_id":  "S01E01_SEG001",
+    "viewer_path":  "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\upload_packages\\S01E01_SEG001\\upload_package_viewer\\index.html",
+    "package_manifest":  "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\upload_packages\\S01E01_SEG001\\03_PACKAGE_MANIFEST.json",
+    "image_upload_count":  7,
+    "audio_upload_count":  0,
+    "decision":  "viewer_pass",
+    "video_submission_allowed":  false,
+    "next_gate":  "explicit_video_submit_confirmation",
+    "note":  "用户已确认SEG001上传包viewer；仅解除viewer门禁，未授权自动提交dreamina multimodal2video。"
+}

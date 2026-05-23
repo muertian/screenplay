@@ -1,0 +1,9 @@
+{
+  "confirmed": false,
+  "confirmed_at": "",
+  "confirmed_by": "user",
+  "segment_id": "EP01_记忆方舟",
+  "gallery_path": "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\keyframe_review_gallery\\index.html",
+  "decision_json_path": "",
+  "note": "用户提交/导出验收结果后，保存为项目本地 *_KEYFRAME_DECISIONS_CONFIRMED.json，并把 confirmed 改为 true。"
+}

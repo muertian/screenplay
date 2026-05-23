@@ -1,0 +1,85 @@
+{
+    "project":  "记忆方舟",
+    "episode":  "S01E01",
+    "segment_id":  "S01E01_SEG001",
+    "package_type":  "jimeng_web_manual_upload",
+    "created_at":  "2026-05-22",
+    "source_package":  "upload_packages/S01E01_SEG001",
+    "cli_status":  "blocked_account_not_maestro_vip",
+    "web_upload_folder":  "jimeng_web_upload_packages/S01E01_SEG001_manual_web",
+    "recommended_web_settings":  {
+                                     "feature":  "视频生成 / 全能参考 / 多模态参考 / 智能多帧",
+                                     "model":  "Seedance 2.0",
+                                     "aspect_ratio":  "16:9",
+                                     "duration_seconds":  15,
+                                     "audio":  "none"
+                                 },
+    "image_count":  7,
+    "images":  [
+                   {
+                       "order":  1,
+                       "slot":  "@图片1",
+                       "file":  "01_SHOT01_opening_keyframe.png",
+                       "relative_path":  "01_images_upload_in_order/01_SHOT01_opening_keyframe.png",
+                       "sha256":  "fdd9449d41a52aa20252d1df81cd3b68c41ef05a477cbea1e5a9035741ac5f5a",
+                       "bytes":  2177503
+                   },
+                   {
+                       "order":  2,
+                       "slot":  "@图片2",
+                       "file":  "02_SHOT02_id_tag_keyframe.png",
+                       "relative_path":  "01_images_upload_in_order/02_SHOT02_id_tag_keyframe.png",
+                       "sha256":  "b38fd914d21a5aad79216e099ee1451ac2fcc8780924c3b721c66a73d2065550",
+                       "bytes":  1962966
+                   },
+                   {
+                       "order":  3,
+                       "slot":  "@图片3",
+                       "file":  "03_SHOT03_waste_city_ark_light_keyframe.png",
+                       "relative_path":  "01_images_upload_in_order/03_SHOT03_waste_city_ark_light_keyframe.png",
+                       "sha256":  "61ad0355a062a5a974dc4b13f99d4c97948e819e2efedd7441f351aef024cdb1",
+                       "bytes":  2211248
+                   },
+                   {
+                       "order":  4,
+                       "slot":  "@图片4",
+                       "file":  "04_SHOT04_earpiece_alert_keyframe.png",
+                       "relative_path":  "01_images_upload_in_order/04_SHOT04_earpiece_alert_keyframe.png",
+                       "sha256":  "92d1f61a51c1a43c23c19a679f9c48b945b4e03316a139e6d62911ebaa1b417f",
+                       "bytes":  1989024
+                   },
+                   {
+                       "order":  5,
+                       "slot":  "@图片5",
+                       "file":  "05_CHARACTER_LuChen_ref.png",
+                       "relative_path":  "01_images_upload_in_order/05_CHARACTER_LuChen_ref.png",
+                       "sha256":  "c3ffa35303d13c32557ea75f11ee2b67795c3bd628432523190a653439acc0be",
+                       "bytes":  2294908
+                   },
+                   {
+                       "order":  6,
+                       "slot":  "@图片6",
+                       "file":  "06_SCENE_armored_vehicle_interior_ref.png",
+                       "relative_path":  "01_images_upload_in_order/06_SCENE_armored_vehicle_interior_ref.png",
+                       "sha256":  "f84ed83c9778056e84229af0006a4b58a818cc3ec19387542667a74c5468f5c4",
+                       "bytes":  2554744
+                   },
+                   {
+                       "order":  7,
+                       "slot":  "@图片7",
+                       "file":  "07_PROP_blank_memory_chip_ref.png",
+                       "relative_path":  "01_images_upload_in_order/07_PROP_blank_memory_chip_ref.png",
+                       "sha256":  "2f2f578faba68451f6dd106cc6d0107e7855097f8e593c5d3c81768428345117",
+                       "bytes":  1920638
+                   }
+               ],
+    "prompt_path":  "02_prompt/COPY_THIS_PROMPT_TO_JIMENG.txt",
+    "output_return_folder":  "manual_web_outputs/S01E01_SEG001",
+    "recommended_output_name":  "S01E01_SEG001_jimeng_web_raw_v01.mp4",
+    "notes":  [
+                  "manual web upload only",
+                  "do not upload audit json or markdown as references",
+                  "do not use CLI for this package"
+              ],
+    "status":  "ready_for_user_web_upload"
+}

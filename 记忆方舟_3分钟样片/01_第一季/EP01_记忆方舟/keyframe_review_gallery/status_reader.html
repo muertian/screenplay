@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>S01E01_SEG001 关键帧验收 - 状态读取</title>
+  <style>
+    body { margin: 0; background: #f6f5f0; color: #202a30; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.55; }
+    main { max-width: 980px; margin: 0 auto; padding: 26px 20px 70px; }
+    button { border: 1px solid #0f766e; border-radius: 8px; padding: 8px 11px; background: #0f766e; color: white; font: inherit; cursor: pointer; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; border-radius: 8px; padding: 14px; background: #172126; color: #ecf3ef; }
+    code { color: #53616b; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>关键帧验收状态读取</h1>
+  <p>此页读取同一浏览器本地保存的 PASS / RETAKE / PENDING。把这里的 JSON 保存为项目本地确认记录后，才算可用于正式视频门禁。</p>
+  <p>包：<code>C:\Users\DELL\Desktop\ai-comic-drama-windows-20260521\剧本\01_第一季\EP01_记忆方舟</code></p>
+  <button type="button" id="copy">复制 JSON</button>
+  <pre id="out"></pre>
+</main>
+<script id="state" type="application/json">{&quot;title&quot;: &quot;S01E01_SEG001 关键帧验收&quot;, &quot;built_at&quot;: &quot;2026-05-21T19:14:55.900171+00:00&quot;, &quot;package_dir&quot;: &quot;C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟&quot;, &quot;manifest_path&quot;: &quot;&quot;, &quot;segment_id&quot;: &quot;EP01_记忆方舟&quot;, &quot;scope&quot;: &quot;EP01_记忆方舟&quot;, &quot;keyframes&quot;: [{&quot;keyframe_id&quot;: &quot;S01E01_SEG001_SHOT01_v01&quot;, &quot;segment_id&quot;: &quot;&quot;, &quot;shot_id&quot;: &quot;S01E01_SEG001_SHOT01_v01&quot;, &quot;label&quot;: &quot;S01E01_SEG001_SHOT01_v01&quot;, &quot;path&quot;: &quot;C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\keyframes\\S01E01_SEG001_SHOT01_v01.png&quot;, &quot;exists&quot;: true, &quot;decision&quot;: &quot;PENDING&quot;, &quot;note&quot;: &quot;&quot;, &quot;camera_action&quot;: &quot;&quot;, &quot;performance&quot;: &quot;&quot;, &quot;prompt_summary&quot;: &quot;&quot;}, {&quot;keyframe_id&quot;: &quot;S01E01_SEG001_SHOT02_v01&quot;, &quot;segment_id&quot;: &quot;&quot;, &quot;shot_id&quot;: &quot;S01E01_SEG001_SHOT02_v01&quot;, &quot;label&quot;: &quot;S01E01_SEG001_SHOT02_v01&quot;, &quot;path&quot;: &quot;C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\keyframes\\S01E01_SEG001_SHOT02_v01.png&quot;, &quot;exists&quot;: true, &quot;decision&quot;: &quot;PENDING&quot;, &quot;note&quot;: &quot;&quot;, &quot;camera_action&quot;: &quot;&quot;, &quot;performance&quot;: &quot;&quot;, &quot;prompt_summary&quot;: &quot;&quot;}, {&quot;keyframe_id&quot;: &quot;S01E01_SEG001_SHOT03_v01&quot;, &quot;segment_id&quot;: &quot;&quot;, &quot;shot_id&quot;: &quot;S01E01_SEG001_SHOT03_v01&quot;, &quot;label&quot;: &quot;S01E01_SEG001_SHOT03_v01&quot;, &quot;path&quot;: &quot;C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\keyframes\\S01E01_SEG001_SHOT03_v01.png&quot;, &quot;exists&quot;: true, &quot;decision&quot;: &quot;PENDING&quot;, &quot;note&quot;: &quot;&quot;, &quot;camera_action&quot;: &quot;&quot;, &quot;performance&quot;: &quot;&quot;, &quot;prompt_summary&quot;: &quot;&quot;}, {&quot;keyframe_id&quot;: &quot;S01E01_SEG001_SHOT04_v01&quot;, &quot;segment_id&quot;: &quot;&quot;, &quot;shot_id&quot;: &quot;S01E01_SEG001_SHOT04_v01&quot;, &quot;label&quot;: &quot;S01E01_SEG001_SHOT04_v01&quot;, &quot;path&quot;: &quot;C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\keyframes\\S01E01_SEG001_SHOT04_v01.png&quot;, &quot;exists&quot;: true, &quot;decision&quot;: &quot;PENDING&quot;, &quot;note&quot;: &quot;&quot;, &quot;camera_action&quot;: &quot;&quot;, &quot;performance&quot;: &quot;&quot;, &quot;prompt_summary&quot;: &quot;&quot;}]}</script>
+<script>
+const initialState = JSON.parse(document.getElementById("state").textContent);
+const storageKey = `ai-comic-drama-keyframe-review:${initialState.package_dir}:${initialState.scope}`;
+const stored = localStorage.getItem(storageKey);
+const state = stored ? JSON.parse(stored) : initialState;
+document.getElementById("out").textContent = JSON.stringify(state, null, 2);
+document.getElementById("copy").addEventListener("click", async () => {
+  await navigator.clipboard.writeText(document.getElementById("out").textContent);
+  document.getElementById("copy").textContent = "已复制";
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>关键帧验收测试</title>
+  <style>
+    body { margin: 0; background: #f6f5f0; color: #202a30; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.55; }
+    main { max-width: 1280px; margin: 0 auto; padding: 26px 20px 70px; }
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: 0; }
+    .subtle { color: #64717b; }
+    .toolbar { position: sticky; top: 0; z-index: 10; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 18px 0; padding: 12px; border: 1px solid #d9d4c8; border-radius: 8px; background: rgba(255, 253, 250, 0.96); }
+    button { border: 1px solid #b9b2a3; border-radius: 8px; padding: 8px 11px; background: #fffdfa; color: #202a30; font: inherit; cursor: pointer; }
+    button.primary { background: #0f766e; border-color: #0f766e; color: white; font-weight: 700; }
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+    .card { overflow: hidden; border: 1px solid #d9d4c8; border-radius: 8px; background: white; }
+    .image-wrap { display: grid; place-items: center; aspect-ratio: 16 / 9; background: #151a1f; }
+    img { width: 100%; height: 100%; object-fit: contain; }
+    .missing { color: #f8faf9; }
+    .card-body { padding: 13px; }
+    .meta { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+    .meta span { color: #64717b; }
+    dl { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 6px 9px; margin: 0 0 12px; font-size: 14px; }
+    dt { color: #64717b; }
+    dd { margin: 0; overflow-wrap: anywhere; }
+    code { color: #53616b; font-family: SFMono-Regular, Consolas, "Liberation Mono", monospace; font-size: 12px; }
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+    label { display: inline-flex; align-items: center; gap: 5px; border: 1px solid #d9d4c8; border-radius: 8px; padding: 5px 8px; background: #fffdfa; }
+    textarea { width: 100%; min-height: 76px; resize: vertical; border: 1px solid #d9d4c8; border-radius: 8px; padding: 8px; font: inherit; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; border-radius: 8px; padding: 14px; background: #172126; color: #ecf3ef; }
+    .empty { padding: 18px; border: 1px solid #d9d4c8; border-radius: 8px; background: #fffdfa; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>关键帧验收测试</h1>
+  <div class="subtle">范围：references | 包：<code>ai-comic-drama\references</code></div>
+  <div class="toolbar">
+    <button class="primary" type="button" id="save">保存到本浏览器</button>
+    <button type="button" id="markPass">全部 PASS</button>
+    <button type="button" id="markPending">全部 PENDING</button>
+    <button type="button" id="export">导出决策 JSON</button>
+    <a href="status_reader.html">打开状态读取页</a>
+    <span class="subtle" id="summary"></span>
+  </div>
+  <section class="grid"><p class="empty">未找到关键帧图片。请传入段落 manifest，或把图片放在 keyframes/ 文件夹。</p></section>
+  <h2>当前决策 JSON</h2>
+  <pre id="jsonPreview"></pre>
+</main>
+<script id="state" type="application/json">{&quot;title&quot;: &quot;关键帧验收测试&quot;, &quot;built_at&quot;: &quot;2026-05-21T16:40:25.459041+00:00&quot;, &quot;package_dir&quot;: &quot;ai-comic-drama\\references&quot;, &quot;manifest_path&quot;: &quot;&quot;, &quot;segment_id&quot;: &quot;references&quot;, &quot;scope&quot;: &quot;references&quot;, &quot;keyframes&quot;: []}</script>
+<script>
+const initialState = JSON.parse(document.getElementById("state").textContent);
+const storageKey = `ai-comic-drama-keyframe-review:${initialState.package_dir}:${initialState.scope}`;
+const cards = [...document.querySelectorAll(".card")];
+function applyState(state) {
+  cards.forEach((card, index) => {
+    const item = state.keyframes[index];
+    if (!item) return;
+    const radio = card.querySelector(`input[value="${item.decision || "PENDING"}"]`);
+    if (radio) radio.checked = true;
+    card.querySelector("textarea").value = item.note || "";
+  });
+  refreshPreview();
+}
+function collectState() {
+  const state = JSON.parse(JSON.stringify(initialState));
+  state.reviewed_at = new Date().toISOString();
+  state.keyframes = cards.map((card, index) => {
+    const original = state.keyframes[index] || {};
+    const checked = card.querySelector("input:checked");
+    return {
+      ...original,
+      decision: checked ? checked.value : "PENDING",
+      note: card.querySelector("textarea").value.trim()
+    };
+  });
+  return state;
+}
+function refreshPreview() {
+  const state = collectState();
+  const counts = state.keyframes.reduce((acc, item) => {
+    acc[item.decision] = (acc[item.decision] || 0) + 1;
+    return acc;
+  }, {});
+  document.getElementById("summary").textContent = `PASS ${counts.VISUAL_PASS || 0} / RETAKE ${counts.RETAKE_REQUESTED || 0} / PENDING ${counts.PENDING || 0}`;
+  document.getElementById("jsonPreview").textContent = JSON.stringify(state, null, 2);
+}
+function saveState() {
+  const state = collectState();
+  localStorage.setItem(storageKey, JSON.stringify(state));
+  refreshPreview();
+}
+function setAll(decision) {
+  cards.forEach((card) => {
+    const radio = card.querySelector(`input[value="${decision}"]`);
+    if (radio) radio.checked = true;
+  });
+  saveState();
+}
+function exportJson() {
+  const state = collectState();
+  const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = `${state.segment_id || "keyframes"}_KEYFRAME_DECISIONS_CONFIRMED.json`;
+  link.click();
+  URL.revokeObjectURL(link.href);
+}
+document.getElementById("save").addEventListener("click", saveState);
+document.getElementById("markPass").addEventListener("click", () => setAll("VISUAL_PASS"));
+document.getElementById("markPending").addEventListener("click", () => setAll("PENDING"));
+document.getElementById("export").addEventListener("click", exportJson);
+document.querySelectorAll("input, textarea").forEach((el) => el.addEventListener("input", refreshPreview));
+const saved = localStorage.getItem(storageKey);
+applyState(saved ? JSON.parse(saved) : initialState);
+</script>
+</body>
+</html>

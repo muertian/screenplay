@@ -1,0 +1,62 @@
+{
+    "title":  "S01E01_SEG001 关键帧验收",
+    "built_at":  "2026-05-21T19:14:55.900171+00:00",
+    "package_dir":  "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟",
+    "manifest_path":  "",
+    "segment_id":  "EP01_记忆方舟",
+    "scope":  "EP01_记忆方舟",
+    "keyframes":  [
+                      {
+                          "keyframe_id":  "S01E01_SEG001_SHOT01_v01",
+                          "segment_id":  "",
+                          "shot_id":  "S01E01_SEG001_SHOT01_v01",
+                          "label":  "S01E01_SEG001_SHOT01_v01",
+                          "path":  "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\keyframes\\S01E01_SEG001_SHOT01_v01.png",
+                          "exists":  true,
+                          "decision":  "VISUAL_PASS",
+                          "note":  "用户确认 2026-05-22；可进入上传包viewer门禁。",
+                          "camera_action":  "",
+                          "performance":  "",
+                          "prompt_summary":  ""
+                      },
+                      {
+                          "keyframe_id":  "S01E01_SEG001_SHOT02_v01",
+                          "segment_id":  "",
+                          "shot_id":  "S01E01_SEG001_SHOT02_v01",
+                          "label":  "S01E01_SEG001_SHOT02_v01",
+                          "path":  "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\keyframes\\S01E01_SEG001_SHOT02_v01.png",
+                          "exists":  true,
+                          "decision":  "VISUAL_PASS",
+                          "note":  "用户确认 2026-05-22；可进入上传包viewer门禁。",
+                          "camera_action":  "",
+                          "performance":  "",
+                          "prompt_summary":  ""
+                      },
+                      {
+                          "keyframe_id":  "S01E01_SEG001_SHOT03_v01",
+                          "segment_id":  "",
+                          "shot_id":  "S01E01_SEG001_SHOT03_v01",
+                          "label":  "S01E01_SEG001_SHOT03_v01",
+                          "path":  "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\keyframes\\S01E01_SEG001_SHOT03_v01.png",
+                          "exists":  true,
+                          "decision":  "VISUAL_PASS",
+                          "note":  "用户确认 2026-05-22；可进入上传包viewer门禁。",
+                          "camera_action":  "",
+                          "performance":  "",
+                          "prompt_summary":  ""
+                      },
+                      {
+                          "keyframe_id":  "S01E01_SEG001_SHOT04_v01",
+                          "segment_id":  "",
+                          "shot_id":  "S01E01_SEG001_SHOT04_v01",
+                          "label":  "S01E01_SEG001_SHOT04_v01",
+                          "path":  "C:\\Users\\DELL\\Desktop\\ai-comic-drama-windows-20260521\\剧本\\01_第一季\\EP01_记忆方舟\\keyframes\\S01E01_SEG001_SHOT04_v01.png",
+                          "exists":  true,
+                          "decision":  "VISUAL_PASS",
+                          "note":  "用户确认 2026-05-22；可进入上传包viewer门禁。",
+                          "camera_action":  "",
+                          "performance":  "",
+                          "prompt_summary":  ""
+                      }
+                  ]
+}

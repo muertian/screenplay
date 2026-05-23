@@ -1,0 +1,246 @@
+{
+    "project":  "记忆方舟",
+    "episode":  "S01E01",
+    "segment_id":  "S01E01_SEG001",
+    "status":  "video_blocked_account_not_maestro_vip",
+    "route":  "keyframe_multiref_seedance",
+    "continuity_strategy":  "keyframe_multiref_seedance",
+    "execution_provider":  "dreamina_cli_seedance2",
+    "seedance_submission_mode":  "智能多帧/多模态参考",
+    "model_version":  "seedance2.0",
+    "aspect_ratio":  "16:9",
+    "duration_seconds":  15,
+    "sequence_start":  true,
+    "is_first_segment":  true,
+    "image_upload_count":  7,
+    "audio_upload_count":  0,
+    "prompt_path":  "prompts/00_seedance多功能参考提示词.txt",
+    "keyframe_approval_source":  "keyframe_review_gallery",
+    "keyframe_decision_json":  "..\\..\\keyframe_review_gallery\\S01E01_SEG001_KEYFRAME_DECISIONS_CONFIRMED.json",
+    "keyframe_review_gallery":  {
+                                    "path":  "..\\..\\keyframe_review_gallery\\index.html",
+                                    "decision_json":  "..\\..\\keyframe_review_gallery\\S01E01_SEG001_KEYFRAME_DECISIONS_CONFIRMED.json"
+                                },
+    "upload_package_viewer":  {
+                                  "path":  "upload_package_viewer/index.html",
+                                  "confirmed":  true,
+                                  "confirmed_at":  "2026-05-22",
+                                  "confirmation_path":  "upload_package_viewer/UPLOAD_PACKAGE_VIEWER_CONFIRMATION.json"
+                              },
+    "video_submission_allowed":  false,
+    "shots":  [
+                  {
+                      "shot_id":  "SHOT01",
+                      "timecode":  "0-4",
+                      "duration_seconds":  4,
+                      "action":  "陆沉从废弃装甲车座椅上猛然醒来，灰尘落下",
+                      "dialogue":  "",
+                      "sound":  "低频耳鸣，远处风声"
+                  },
+                  {
+                      "shot_id":  "SHOT02",
+                      "timecode":  "4-8",
+                      "duration_seconds":  4,
+                      "action":  "陆沉翻看胸口身份牌，姓名被磨损不可读",
+                      "dialogue":  "",
+                      "sound":  "金属身份牌轻响"
+                  },
+                  {
+                      "shot_id":  "SHOT03",
+                      "timecode":  "8-12",
+                      "duration_seconds":  4,
+                      "action":  "远处废城上方升起白色方舟光柱",
+                      "dialogue":  "",
+                      "sound":  "方舟广播模糊响起"
+                  },
+                  {
+                      "shot_id":  "SHOT04",
+                      "timecode":  "12-15",
+                      "duration_seconds":  3,
+                      "action":  "陆沉耳机忽然恢复，眼神从迷茫变警觉",
+                      "dialogue":  "把空白晶片带到方舟。",
+                      "sound":  "破损通讯声"
+                  }
+              ],
+    "keyframe_references":  [
+                                {
+                                    "slot":  "@图片1",
+                                    "path":  "keyframes/S01E01_SEG001_SHOT01_v01.png",
+                                    "label":  "S01E01_SEG001_SHOT01_v01",
+                                    "shot_id":  "SHOT01",
+                                    "purpose":  "时序关键帧：0-4秒，陆沉惊醒，单枚空白晶片",
+                                    "status":  "VISUAL_PASS",
+                                    "approval_status":  "VISUAL_PASS",
+                                    "duration_seconds":  4
+                                },
+                                {
+                                    "slot":  "@图片2",
+                                    "path":  "keyframes/S01E01_SEG001_SHOT02_v01.png",
+                                    "label":  "S01E01_SEG001_SHOT02_v01",
+                                    "shot_id":  "SHOT02",
+                                    "purpose":  "时序关键帧：4-8秒，身份牌不可读，建立失忆",
+                                    "status":  "VISUAL_PASS",
+                                    "approval_status":  "VISUAL_PASS",
+                                    "duration_seconds":  4
+                                },
+                                {
+                                    "slot":  "@图片3",
+                                    "path":  "keyframes/S01E01_SEG001_SHOT03_v01.png",
+                                    "label":  "S01E01_SEG001_SHOT03_v01",
+                                    "shot_id":  "SHOT03",
+                                    "purpose":  "时序关键帧：8-12秒，废城远景和方舟光柱",
+                                    "status":  "VISUAL_PASS",
+                                    "approval_status":  "VISUAL_PASS",
+                                    "duration_seconds":  4
+                                },
+                                {
+                                    "slot":  "@图片4",
+                                    "path":  "keyframes/S01E01_SEG001_SHOT04_v01.png",
+                                    "label":  "S01E01_SEG001_SHOT04_v01",
+                                    "shot_id":  "SHOT04",
+                                    "purpose":  "时序关键帧：12-15秒，耳机恢复，陆沉警觉起身",
+                                    "status":  "VISUAL_PASS",
+                                    "approval_status":  "VISUAL_PASS",
+                                    "duration_seconds":  3
+                                }
+                            ],
+    "character_references":  [
+                                 {
+                                     "slot":  "@图片5",
+                                     "path":  "references/characters/CHAR_LC_ref_v01.png",
+                                     "label":  "CHAR_LC_ref_v01",
+                                     "shot_id":  "",
+                                     "purpose":  "角色参考：锁定陆沉脸、发型、服装、体态",
+                                     "status":  "小样锁定"
+                                 }
+                             ],
+    "scene_references":  [
+                             {
+                                 "slot":  "@图片6",
+                                 "path":  "references/scenes/SCENE_WRECK_CLEAN_REF.png",
+                                 "label":  "SCENE_WRECK_CLEAN_REF",
+                                 "shot_id":  "",
+                                 "purpose":  "当前场景参考：锁定废弃装甲车车厢空间、光线、材质和方向",
+                                 "status":  "小样锁定"
+                             }
+                         ],
+    "prop_references":  [
+                            {
+                                "slot":  "@图片7",
+                                "path":  "references/props/PROP_BLANK_CHIP_v01.png",
+                                "label":  "PROP_BLANK_CHIP_v01",
+                                "shot_id":  "",
+                                "purpose":  "核心道具参考：锁定空白记忆晶片外形、材质和唯一性",
+                                "status":  "小样锁定"
+                            }
+                        ],
+    "image_uploads":  [
+                          {
+                              "slot":  "@图片1",
+                              "path":  "keyframes/S01E01_SEG001_SHOT01_v01.png",
+                              "label":  "S01E01_SEG001_SHOT01_v01",
+                              "shot_id":  "SHOT01",
+                              "purpose":  "时序关键帧：0-4秒，陆沉惊醒，单枚空白晶片",
+                              "status":  "VISUAL_PASS",
+                              "approval_status":  "VISUAL_PASS",
+                              "duration_seconds":  4
+                          },
+                          {
+                              "slot":  "@图片2",
+                              "path":  "keyframes/S01E01_SEG001_SHOT02_v01.png",
+                              "label":  "S01E01_SEG001_SHOT02_v01",
+                              "shot_id":  "SHOT02",
+                              "purpose":  "时序关键帧：4-8秒，身份牌不可读，建立失忆",
+                              "status":  "VISUAL_PASS",
+                              "approval_status":  "VISUAL_PASS",
+                              "duration_seconds":  4
+                          },
+                          {
+                              "slot":  "@图片3",
+                              "path":  "keyframes/S01E01_SEG001_SHOT03_v01.png",
+                              "label":  "S01E01_SEG001_SHOT03_v01",
+                              "shot_id":  "SHOT03",
+                              "purpose":  "时序关键帧：8-12秒，废城远景和方舟光柱",
+                              "status":  "VISUAL_PASS",
+                              "approval_status":  "VISUAL_PASS",
+                              "duration_seconds":  4
+                          },
+                          {
+                              "slot":  "@图片4",
+                              "path":  "keyframes/S01E01_SEG001_SHOT04_v01.png",
+                              "label":  "S01E01_SEG001_SHOT04_v01",
+                              "shot_id":  "SHOT04",
+                              "purpose":  "时序关键帧：12-15秒，耳机恢复，陆沉警觉起身",
+                              "status":  "VISUAL_PASS",
+                              "approval_status":  "VISUAL_PASS",
+                              "duration_seconds":  3
+                          },
+                          {
+                              "slot":  "@图片5",
+                              "path":  "references/characters/CHAR_LC_ref_v01.png",
+                              "label":  "CHAR_LC_ref_v01",
+                              "shot_id":  "",
+                              "purpose":  "角色参考：锁定陆沉脸、发型、服装、体态",
+                              "status":  "小样锁定"
+                          },
+                          {
+                              "slot":  "@图片6",
+                              "path":  "references/scenes/SCENE_WRECK_CLEAN_REF.png",
+                              "label":  "SCENE_WRECK_CLEAN_REF",
+                              "shot_id":  "",
+                              "purpose":  "当前场景参考：锁定废弃装甲车车厢空间、光线、材质和方向",
+                              "status":  "小样锁定"
+                          },
+                          {
+                              "slot":  "@图片7",
+                              "path":  "references/props/PROP_BLANK_CHIP_v01.png",
+                              "label":  "PROP_BLANK_CHIP_v01",
+                              "shot_id":  "",
+                              "purpose":  "核心道具参考：锁定空白记忆晶片外形、材质和唯一性",
+                              "status":  "小样锁定"
+                          }
+                      ],
+    "audio_for_video":  [
+
+                        ],
+    "audio_for_postmix":  [
+
+                          ],
+    "omitted_references":  [
+                               {
+                                   "name":  "PROP_ID_TAG_v01",
+                                   "path":  "..\\..\\references\\props\\PROP_ID_TAG_v01.png",
+                                   "reason":  "7图软上限内优先保留四张时序关键帧、主角、当前车厢场景和空白晶片；身份牌已由SHOT02关键帧承载。",
+                                   "prompt_compensation":  "提示词明确身份牌不可读、手指发抖、金属轻响。"
+                               },
+                               {
+                                   "name":  "PROP_EARPIECE_v01",
+                                   "path":  "..\\..\\references\\props\\PROP_EARPIECE_v01.png",
+                                   "reason":  "耳机只服务SHOT04动作，已由SHOT04关键帧和提示词描述承载。",
+                                   "prompt_compensation":  "提示词写明破损耳机恢复通讯、无屏幕、陆沉侧头警觉。"
+                               },
+                               {
+                                   "name":  "SCENE_WASTE_CITY_CLEAN_REF",
+                                   "path":  "..\\..\\references\\scenes\\SCENE_WASTE_CITY_CLEAN_REF.png",
+                                   "reason":  "废城和方舟光柱已经在SHOT03时序关键帧内出现，避免未来场景参考干扰车厢主空间。",
+                                   "prompt_compensation":  "提示词写明方舟光柱固定在右前方、废城低饱和远景。"
+                               }
+                           ],
+    "ready_for_video_submit":  true,
+    "upload_package_viewer_confirmation":  "upload_package_viewer/UPLOAD_PACKAGE_VIEWER_CONFIRMATION.json",
+    "next_gate":  "explicit_video_submit_confirmation",
+    "video_submit_authorized_at":  "2026-05-22",
+    "video_submit_authorized_by":  "user",
+    "video_submit_authorization_message":  "提交SEG001视频",
+    "credit_check":  {
+                         "total_credit":  225,
+                         "vip_level":  "standard",
+                         "checked_at":  "2026-05-22",
+                         "command":  "dreamina user_credit"
+                     },
+    "submission_scope":  "S01E01_SEG001 only",
+    "submit_id":  null,
+    "last_submit_error":  "当前账号没有 dreamina_cli 使用权限: current account is not maestro vip",
+    "last_submit_attempted_at":  "2026-05-22",
+    "last_submit_blocker_log":  "execution/S01E01_SEG001_submit_blocked_account_20260522.md"
+}

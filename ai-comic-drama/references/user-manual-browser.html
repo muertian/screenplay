@@ -1,0 +1,987 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI漫剧 Skill 用户推进手册</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8f7f3;
+      --panel: #ffffff;
+      --panel-soft: #fbfaf7;
+      --ink: #24313a;
+      --muted: #64717b;
+      --line: #ddd8cc;
+      --teal: #0f766e;
+      --teal-dark: #115e59;
+      --amber: #b45309;
+      --code-bg: #172126;
+      --code-ink: #e8f0ed;
+      --shadow: 0 18px 45px rgba(36, 49, 58, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .app-shell {
+      display: grid;
+      grid-template-columns: 292px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      height: 100vh;
+      padding: 24px 18px;
+      border-right: 1px solid var(--line);
+      background: #f0eee7;
+      overflow: auto;
+    }
+
+    .brand {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff7ed;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1.15rem;
+      line-height: 1.3;
+    }
+
+    .brand p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .search {
+      position: relative;
+      margin: 18px 0;
+    }
+
+    .search input {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 9px 12px;
+      background: #fffdfa;
+      color: var(--ink);
+      font: inherit;
+      outline: none;
+    }
+
+    .search input:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.14);
+    }
+
+    .toc {
+      display: grid;
+      gap: 4px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: #3e4b54;
+      font-size: 0.92rem;
+    }
+
+    .toc a:hover,
+    .toc a.active {
+      background: #fffdfa;
+      color: var(--teal-dark);
+    }
+
+    .main {
+      min-width: 0;
+      padding: 34px clamp(22px, 5vw, 72px) 70px;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 22px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .source-link {
+      color: var(--teal-dark);
+      font-weight: 700;
+    }
+
+    .hero {
+      max-width: 980px;
+      margin-bottom: 26px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0 0;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 5px 9px;
+      background: #fffdfa;
+      color: #4b5962;
+      font-size: 0.84rem;
+      line-height: 1.4;
+    }
+
+    .manual-section {
+      max-width: 980px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .manual-section[hidden] {
+      display: none;
+    }
+
+    .manual-section h2 {
+      margin: 0 0 16px;
+      color: var(--ink);
+      font-size: 1.45rem;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+
+    .manual-section h3 {
+      margin: 24px 0 10px;
+      color: #2e3b44;
+      font-size: 1.06rem;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .manual-section p {
+      margin: 10px 0;
+    }
+
+    .manual-section ul {
+      margin: 10px 0 14px;
+      padding-left: 1.2rem;
+    }
+
+    .manual-section li {
+      margin: 5px 0;
+    }
+
+    code:not(pre code) {
+      border: 1px solid #e2ded5;
+      border-radius: 6px;
+      padding: 0.08rem 0.32rem;
+      background: #fffdfa;
+      color: #8a3c08;
+      font-family: "Cascadia Mono", Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: 12px 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    table {
+      width: 100%;
+      min-width: 680px;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th,
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #ece7db;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f3f0e7;
+      color: #26333b;
+      font-weight: 800;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .prompt {
+      position: relative;
+      margin: 12px 0 20px;
+      border-radius: 8px;
+      background: var(--code-bg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .prompt pre {
+      margin: 0;
+      padding: 44px 18px 18px;
+      overflow-x: auto;
+      color: var(--code-ink);
+      font-family: "Cascadia Mono", Consolas, monospace;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      min-height: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 8px;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #f8faf9;
+      font: inherit;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    .copy-button:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .empty-state {
+      max-width: 980px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        height: auto;
+        max-height: none;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .toc {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      .main {
+        padding: 24px 18px 52px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="手册导航">
+      <div class="brand">
+        <div class="brand-mark">AI</div>
+        <h1>AI漫剧 Skill 手册</h1>
+        <p>阶段路由、提示词、验收门禁</p>
+      </div>
+      <label class="search">
+        <input id="searchInput" type="search" placeholder="搜索阶段、提示词、关键词" autocomplete="off" />
+      </label>
+      <nav>
+        <ul class="toc" id="toc"></ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="toolbar">
+        <span>生成时间：2026-05-22 00:40</span>
+        <a class="source-link" href="user-manual-prompts.md">查看 Markdown 源文件</a>
+      </div>
+      <article id="content"></article>
+      <div id="emptyState" class="empty-state" hidden>没有找到匹配内容。</div>
+    </main>
+  </div>
+
+  <textarea id="manualSource" hidden># AI漫剧 Skill 用户推进手册
+
+本手册给用户使用：当你想让 `$ai-comic-drama` 推进项目时，直接复制对应提示词，把方括号替换成当前项目、集数、段落或具体要求即可。
+
+网页版入口：安装后运行 `scripts/build_user_manual_browser.py`，打开当前 skill 文件夹中的 `references/user-manual-browser.html`。Windows 通常位于 `C:\Users\[用户名]\.codex\skills\ai-comic-drama\references\user-manual-browser.html`，Mac 通常位于 `/Users/[用户名]/.codex/skills/ai-comic-drama/references/user-manual-browser.html`；以本机实际绝对路径为准。
+
+核心原则：
+
+- 先说清楚范围：项目、季/集、段落、是否只做素材。
+- 视频提交要单独确认：批量生产、关键帧、音频、上传包都不等于提交视频。
+- 关键帧验收只验收图片：脚本和提示词只是参考材料。
+- 后续段落必须等上一段通过尾帧：raw 720p 尾帧不能直接接链，下载后先 Seedan 1080p，再 60fps，再抽尾帧。
+- 如果你说“继续”，默认继续当前已记录路线；如果你说“重新生成”，必须说明是关键帧、音频、上传包还是视频。
+
+## 目录
+
+- [瘦身版使用方式](#瘦身版使用方式)
+- [Reference 路由速查](#reference-路由速查)
+- [一句话推进法](#一句话推进法)
+- [项目启动](#项目启动)
+- [剧情和分镜](#剧情和分镜)
+- [参考图与关键帧](#参考图与关键帧)
+- [Mimo音频](#mimo音频)
+- [上传包与视频提交](#上传包与视频提交)
+- [成片后处理与尾帧](#成片后处理与尾帧)
+- [验收与返修](#验收与返修)
+- [批量生产](#批量生产)
+- [Skill 维护](#skill-维护)
+- [短指令模板](#短指令模板)
+
+## 瘦身版使用方式
+
+`SKILL.md` 现在只负责硬门禁和路由，不再装下全部制片细则。你推进任务时，不需要一次性把所有规则重复一遍，只要说清楚“范围 + 目标 + 边界”，skill 会按阶段加载对应手册。
+
+推荐说法：
+
+```text
+Use $ai-comic-drama 按瘦身版路由推进《[项目名]》[范围]：[目标]。只加载当前阶段需要的reference，先读当前运行设置和相关生产包；不要做与本目标无关的生成或提交。
+```
+
+如果你希望它更省上下文，可以直接点名阶段：
+
+| 你要推进 | 推荐补充 |
+|---|---|
+| 剧情/分镜 | `只按剧情和15秒分镜阶段处理，不读视频提交手册。` |
+| 关键帧 | `只处理关键帧、imagegen staging 和有序关键帧表，不提交视频。` |
+| Mimo音频 | `只处理Mimo音频映射和上传副本，不改关键帧。` |
+| 上传包 | `只构建上传包和视频提示词，不提交视频。` |
+| 视频提交 | `只通过即梦CLI提交这个SEG，提交前重新检查硬门禁。` |
+| 成片后处理 | `只处理Seedan 1080p/60fps、归档和尾帧，不重提视频。` |
+| 批量生产 | `只做批量素材和待提交清单，不提交、不排队、不下载。` |
+
+当你发现 skill 开始读太多东西，可以这样收束：
+
+```text
+Use $ai-comic-drama 收束到当前任务：只处理《[项目名]》[范围] 的 [阶段]，不要加载无关reference，不要改无关文件。
+```
+
+## Reference 路由速查
+
+一般不要主动点名历史兼容路由；需要更稳定时，直接按阶段点名下面的 reference：
+
+| 你要做什么 | 推荐点名 |
+|---|---|
+| 生图任务、source record、项目本地 `imagegen_staging/` | `只加载 imagegen-staging.md` |
+| 干净场景参考、道具/线索参考、有序关键帧上传表 | `只加载 asset-package-tables.md` |
+| 关键帧审片网页、PASS/RETAKE、返修备注、批量验收结果 | `优先同时使用 $keyframe-review-gallery；不可用时运行 scripts/build_keyframe_review_gallery.py` |
+| 角色音色、Mimo对白、补静音上传副本、音频映射 | `只加载 mimo-audio-handoff.md` |
+| 上传包、视频提示词、即梦CLI提交、7图软上限/9图硬上限、Seedan后处理、尾帧交接 | `只加载 seedance-2-handoff.md` |
+| 成片验收、返修、最终交付、批量质检 | `只加载 quality-gates.md 和 delivery-qc-templates.md` |
+| 检查 skill 自身路由、缺文件、长文档目录 | `运行 scripts/check_skill_integrity.py` |
+
+## 一句话推进法
+
+### 盘点当前状态
+
+```text
+Use $ai-comic-drama 盘点《[项目名]》当前进度：读取当前运行设置、当前生产包和最近一次提交记录，告诉我每个段落的状态、阻塞点、下一步建议。不要生成新素材，不要提交视频。
+```
+
+### 按阶段精简推进
+
+```text
+Use $ai-comic-drama 按瘦身版路由推进《[项目名]》[SXXEXX_SEGXXX] 的 [阶段名]。只加载这个阶段需要的reference，输出已完成、阻塞点和下一步；不要生成或提交超出本阶段的内容。
+```
+
+### 继续当前段落素材
+
+```text
+Use $ai-comic-drama 继续推进《[项目名]》[SXXEXX_SEGXXX] 的素材准备，按阶段输出：1)脚本/分镜同步；2)参考资产与 imagegen staging/source record 缺口；3)Mimo音频；4)有序关键帧上传规划；5)上传包/manifest。只推进当前缺口阶段，不提交Seedance视频。
+```
+
+### 只整理，不生成
+
+```text
+Use $ai-comic-drama 只整理《[项目名]》[范围] 的生产状态：清理废案引用、更新manifest和上传清单、列出缺口。不要调用imagegen、Mimo，也不要提交Seedance视频。
+```
+
+### 继续后续全部素材
+
+```text
+Use $ai-comic-drama 从《[项目名]》[起始段落] 开始继续后续素材，直到 [结束范围]。只做批量素材：分镜、关键帧提示词、Mimo音频、上传包、检查报告；不提交视频、不排队、不下载、不抽尾帧。
+```
+
+## 项目启动
+
+### 从原始资料建项目
+
+```text
+Use $ai-comic-drama 以我提供的小说、大纲、人物参考图、场景图、风格图和音频为准，建立《[项目名]》当前运行设置、素材整合清单、锁定资产缺口表和第一集制作路线。先不要生成图片或视频。
+```
+
+### 确认正式路线
+
+```text
+Use $ai-comic-drama 为《[项目名]》建立正式路线：每集约 [时长] 分钟，每段15秒、固定4镜头/4帧；所有图片/关键帧/返修图必须走 $imagegen built-in image_gen；关键帧走 ordered keyframes；视频走 Seedance `seedance2.0`；视频上传/查询/下载必须通过本地即梦 dreamina CLI；下载后 Seedan 1080p 再 60fps。输出当前运行设置和待确认事项。
+```
+
+### 大规模生产前检查
+
+```text
+Use $ai-comic-drama 检查《[项目名]》是否可以进入批量生产：小说/集纲、角色锁、干净场景参考、道具/线索、Mimo音色、黄金样片、连续性测试、成本策略。输出 PASS/WARN/BLOCKED 清单。
+```
+
+## 剧情和分镜
+
+### 拆第一集
+
+```text
+Use $ai-comic-drama 把《[项目名]》[第X集] 拆成约 [数量] 个15秒单元，每段固定4个SHOT，保留短剧压力、转折和结尾钩子。输出分段表和每段剧情功能，不生成图片。
+```
+
+### 重写指定段
+
+```text
+Use $ai-comic-drama 重写《[项目名]》[SXXEXX_SEGXXX] 的15秒分镜。要求：承接上一段状态；固定4个连续SHOT；每个SHOT写清景别/机位、画面动作、角色表演、音频口型、参考资产、画面禁区和连续性要求。不要生成图片。
+```
+
+### 检查分镜质量
+
+```text
+Use $ai-comic-drama 检查《[项目名]》[范围] 的分镜是否满足：每段15秒、固定4镜头、SHOT01-SHOT04连续、动作具体、表演可见、没有占位词、没有文字/UI风险、结尾可承接。只输出问题和修改建议。
+```
+
+## 参考资产
+
+### 建角色锁
+
+```text
+Use $ai-comic-drama 为《[项目名]》整理角色锁：[角色名单]。基于现有参考图，写出脸型、发型、体态、服装、标志道具、允许变化和禁止漂移；列出缺失参考图。不要生成新图，除非我确认。
+```
+
+### 建场景空间锚点
+
+```text
+Use $ai-comic-drama 为《[项目名]》[场景名] 准备干净场景参考需求：说明入口出口、路线、层级、灯光区、材质和禁止内容；如需空间源图可另存审计，但正式上传图必须是干净单图，不是九宫格、地图或拼贴。先写生成提示词和锁定标准，不提交视频。
+```
+
+### 检查道具/线索缺口
+
+```text
+Use $ai-comic-drama 检查《[项目名]》[范围] 的可见道具和追踪线索：哪些必须有纯道具参考或线索参考，哪些已有锁定图，哪些会阻塞正式关键帧或视频提交。输出补齐优先级。
+```
+
+## 关键帧
+
+### 生成关键帧提示词
+
+```text
+Use $ai-comic-drama 为《[项目名]》[SXXEXX_SEGXXX] 生成关键帧提示词。后续段落的 SHOT01 使用上一段真实尾帧，只为 SHOT02 到最后一个SHOT 写提示词。每个提示词必须是单张16:9电影画面，包含实际加载参考图清单要求，不要写成本地路径可自动绑定。
+```
+
+### 生成关键帧候选
+
+```text
+Use $ai-comic-drama 为《[项目名]》[SXXEXX_SEGXXX] 生成 SHOT[范围] 关键帧候选。必须使用 $imagegen built-in image_gen；生成前先确认并加载本镜头所需角色、场景、道具、异兽/线索参考；生成后写入项目本地 imagegen_staging source record，工具记录为 `$imagegen_builtin_image_gen`，再复制到 keyframes。不要提交视频。
+```
+
+### 只做 imagegen staging 记录
+
+```text
+Use $ai-comic-drama 为《[项目名]》[范围] 只整理 imagegen staging/source record：核对工具为 `$imagegen_builtin_image_gen`、默认输出路径、项目本地 staging 路径、最终保存路径、哈希、实际加载参考图清单和验收状态。不要生成新图，不提交视频。
+```
+
+### 做关键帧验收页
+
+```text
+Use $ai-comic-drama 为《[项目名]》[范围] 制作关键帧验收网页。优先使用 $keyframe-review-gallery；如果不可用，运行 `scripts/build_keyframe_review_gallery.py`。输入使用当前关键帧manifest或图片清单；只展示待用户验收的关键帧图片，旁边只显示镜头、画面动作、角色/表演三类简短参考；生成 index.html、status_reader.html、KEYFRAME_REVIEW_STATE.json 和确认模板。标明 PASS/RETAKE/PENDING，不提交视频。
+```
+
+### 读取验收网页结果
+
+```text
+Use $ai-comic-drama 读取《[项目名]》[验收批次] 的关键帧验收网页提交结果。打开同源 status_reader.html，读取用户已提交的 PASS/RETAKE/PENDING 和返修备注，保存为项目本地 `*_KEYFRAME_DECISIONS_CONFIRMED.json`，再同步更新验收页、manifest、上传清单和当前运行设置；不要提交视频。
+```
+
+### 用户通过关键帧
+
+```text
+Use $ai-comic-drama 我确认《[项目名]》[SXXEXX_SEGXXX] 的 [SHOT列表或全部待审关键帧] 关键帧通过。请更新验收页、manifest、上传清单和当前运行设置；仍然不要提交视频，除非我下一句明确说开始上传生成。
+```
+
+### 只做有序关键帧上传规划
+
+```text
+Use $ai-comic-drama 为《[项目名]》[SXXEXX_SEGXXX] 只做资产包和有序关键帧上传规划：读取已通过关键帧、上一段尾帧、干净场景参考、道具/线索参考，输出 @图片 顺序和缺口；不要生成新图，不写最终视频提交命令。
+```
+
+### 返修关键帧
+
+```text
+Use $ai-comic-drama 返修《[项目名]》[SXXEXX_SEGXXX] [SHOTXX] 关键帧，问题是：[具体问题]。只重做被点名的关键帧，保留已通过关键帧和锁定资产；生成后更新 source record、keyframes、验收页和manifest。不要提交视频。
+```
+
+### 按验收网页返修项重抽
+
+```text
+Use $ai-comic-drama 根据《[项目名]》[验收批次] 的 `*_KEYFRAME_DECISIONS_CONFIRMED.json` 处理 RETAKE_REQUESTED 项。只重抽有返修备注的关键帧，保留 VISUAL_PASS 项；重抽必须使用 $imagegen built-in image_gen；重抽后更新 imagegen staging/source record、keyframes、review gallery manifest 和当前运行设置。不要提交视频。
+```
+
+## Mimo 音频
+
+### 生成对白音频
+
+```text
+Use $ai-comic-drama 为《[项目名]》[SXXEXX_SEGXXX] 生成 Mimo 正式对白。角色使用当前锁定 v02 音色文件；按分镜台词生成 `audio_for_video/`，短于2秒的另建 2.40s 补静音上传副本到 `audio_for_video_upload/`。更新音频映射表和manifest。
+```
+
+### 只检查音频
+
+```text
+Use $ai-comic-drama 检查《[项目名]》[范围] 的 Mimo 音频：台词是否匹配最新分镜、音色是否用锁定版、上传副本是否 2-15 秒、旧稿音频是否被隔离。不要生成新音频，先列问题。
+```
+
+## 上传包
+
+### 构建单段上传包
+
+```text
+Use $ai-comic-drama 为《[项目名]》[SXXEXX_SEGXXX] 构建 Seedance / 即梦CLI 上传包。包含上一段真实尾帧、有序关键帧、必要人物/异兽/道具/线索参考、干净场景参考、Mimo上传音频、必要音色参考、视频提示词和manifest。manifest 记录 `execution_provider: dreamina_cli`。视频提示词按“摄像机→主体→空间→音频”写；角色可见对白必须用 `{台词}`；旁白不写入视频提示词；包含 no music 和 no subtitles。按7图软上限和9图硬上限检查；不提交视频。
+```
+
+### 自检上传包
+
+```text
+Use $ai-comic-drama 自检《[项目名]》[SXXEXX_SEGXXX] 上传包：manifest JSON、文件存在、提交模式为智能多帧/多模态参考、关键帧用户通过、4张时序帧、4个镜头节拍、7图软上限/9图硬上限、实际 @图片/@音频 槽位、音频2-15秒且总长不超15秒、音色参考映射、视频提示词三段结构、可见对白是否用 `{台词}`、是否按“摄像机→主体→空间→音频”写、是否未写旁白文本、是否包含 no music/no subtitles、末句“不要在视频画面中出现文字信息。”、无旧案引用、提交前 viewer 是否已打开并记录用户确认。输出 PASS/WARN/BLOCKED。
+```
+
+### 生成提交前上传包核对页
+
+```text
+Use $ai-comic-drama 为《[项目名]》[SXXEXX_SEGXXX] 生成提交前上传包核对页。用当前manifest和最终视频提示词生成本地 viewer，展示真实 @图片/@音频 顺序、已选图片、被省略引用、video audio、postmix-only audio 和最终提示词；打开给我检查。不要提交视频，等我明确确认。
+```
+
+### 重建视频提示词
+
+```text
+Use $ai-comic-drama 重建《[项目名]》[SXXEXX_SEGXXX] 的视频提示词。按实际上传顺序写 `【参考内容说明】`、`【视频内容】`、`【连续性要求】`；场景参考必须定义为干净场景参考，只用于空间、光线、材质和环境；视频内容按“摄像机→主体→空间→音频”写4个顺序节拍，不写逐秒计划；可见角色对白必须用 `{台词}`，旁白文本不要写入视频提示词；如有音色参考，明确哪个角色使用哪个音频；包含 no music 和 no subtitles；最后一句固定为“不要在视频画面中出现文字信息。” 不提交视频。
+```
+
+## 视频提交和下载
+
+### 单段正式提交
+
+```text
+Use $ai-comic-drama 开始通过即梦CLI上传生成《[项目名]》[SXXEXX_SEGXXX]，只提交这一段。提交前再次检查关键帧已通过、上传包无 BLOCKED、已打开上传包 viewer 并记录我的确认、`dreamina -h` / `dreamina multimodal2video -h` / `dreamina user_credit` 已检查、Seedance 图片默认不超过7张且绝不超过9张、音频2-15秒且总上传音频不超过15秒、模型为 seedance2.0、模式为智能多帧/多模态参考、16:9、720p、15秒。必须使用 `dreamina multimodal2video` 提交；提交后记录 submit_id、logid、点数、命令和队列状态。
+```
+
+### 查询下载
+
+```text
+Use $ai-comic-drama 通过即梦CLI查询并下载《[项目名]》[SXXEXX_SEGXXX] 的既有 Submit ID：[submit_id]。使用 `dreamina query_result --submit_id=&lt;submit_id&gt; --download_dir=&lt;download_dir&gt;`，只查询这个任务，不重复提交。成功后保留 raw 下载，记录媒体参数；等待或执行 Seedan 1080p -&gt; 60fps 后处理，再抽尾帧。
+```
+
+### Seedan 后处理记录
+
+```text
+Use $ai-comic-drama 我已经把《[项目名]》[SXXEXX_SEGXXX] 原始视频通过 Seedan 免费功能先升到1080p、再升到60fps，文件路径是：[1080p路径] 和 [60fps路径]。请验证文件存在，更新manifest/运行设置/归档记录，并从60fps版本抽尾帧给下一段。
+```
+
+### 成片组装导出
+
+```text
+Use $ai-comic-drama 为《[项目名]》[集数或范围] 准备成片组装。按分镜和时间轴顺序组装已通过的当前视频段、旁白音轨、BGM和音效；旁白/BGM作为后期轨道处理，不写回 Seedance 视频提示词。剪辑就绪后引导我导出；不要提交或重提视频。
+```
+
+## 验收与返修
+
+### 审片通过
+
+```text
+Use $ai-comic-drama 我确认《[项目名]》[SXXEXX_SEGXXX] 成片通过。请把当前 1080p/60fps 版本标记为 VISUAL_PASS，锁定本段尾帧，并复制为 [下一段ID] 的 SHOT01 / @图片1。不要自动提交下一段视频。
+```
+
+### 成片返修
+
+```text
+Use $ai-comic-drama 《[项目名]》[SXXEXX_SEGXXX] 成片不通过，问题是：[具体问题]。请分类判断是关键帧返修、视频提示词重建、音频重做、参考图补齐、还是只需重新提交；保留失败版本记录，不覆盖锁定资产，不自动重提视频，先给返修方案。
+```
+
+## 批量生产
+
+### 4+1 批量准备
+
+```text
+Use $ai-comic-drama 按4+1制片厂结构准备《[项目名]》批量生产：总控负责全季连续性、锁定资产、最终合并和待视频提交清单；四个agent分别负责 [EP范围]。本批量生产只做脚本、关键帧提示词、素材包、音频、上传包和检查报告；不提交、不排队、不下载视频。
+```
+
+### 集中审片批次
+
+```text
+Use $ai-comic-drama 为《[项目名]》[范围] 准备集中关键帧审片批次。每批最多 [数量] 段；只展示新生成关键帧，后续段不展示上一段尾帧。优先使用 $keyframe-review-gallery；如果不可用，运行 `scripts/build_keyframe_review_gallery.py` 生成本地 review gallery，标清每张图对应 SHOT、镜头、画面动作、角色/表演；等待我点击提交本批验收。
+```
+
+### 批量缺口报告
+
+```text
+Use $ai-comic-drama 输出《[项目名]》[范围] 批量生产缺口报告：缺角色/场景/道具/线索参考、缺Mimo音频、缺关键帧、缺用户验收、缺上一段通过尾帧、缺Seedan后处理、超过7图软上限/9图硬上限风险。按阻塞优先级排序。
+```
+
+## 清理和废案隔离
+
+### 废案隔离
+
+```text
+Use $ai-comic-drama 把《[项目名]》[范围或路径] 的旧案/失败路线隔离到废案目录，更新当前manifest和运行设置，确保当前上传包不再引用旧视频、旧尾帧、旧故事板、旧关键帧或旧音频。不要删除当前通过链路。
+```
+
+### 检查旧案污染
+
+```text
+Use $ai-comic-drama 检查《[项目名]》[范围] 是否还有旧案污染：旧submit、旧尾帧、旧故事板/拼贴路线、旧关键帧、旧Mimo台词、旧场景参考、废案路径。输出引用位置和清理建议。
+```
+
+## Skill 维护
+
+### 检查 skill 完整性
+
+```text
+Use $ai-comic-drama 检查 skill 自身完整性：运行 `scripts/check_skill_integrity.py --strict-toc`，确认 SKILL.md 路由文件存在、长 reference 有目录、旧案兼容入口没有重新进入活跃路由。只报告结果和需要修复的文件，不改项目素材。
+```
+
+### 更新手册适配新路由
+
+```text
+Use $ai-comic-drama 更新用户手册以适配当前 SKILL.md 路由：只补用户可复制提示词和 reference 路由说明，不把长制作规则重复写进手册；更新后运行 skill 完整性检查。
+```
+
+## 常用短指令
+
+```text
+继续，但只做素材，不提交视频。
+```
+
+```text
+只查状态，别改文件。
+```
+
+```text
+更新记录，不生成新素材。
+```
+
+```text
+这批关键帧通过，更新manifest，但不要提交视频。
+```
+
+```text
+这个镜头重抽，原因是：[问题]。
+```
+
+```text
+重新生成这个段落的视频，只提交 [SEGID]，不要动后续段落。
+```
+
+```text
+下载后先等我做 Seedan，不要抽 raw 尾帧。
+```
+
+## 填提示词时最重要的 6 个槽
+
+每次你想让 skill 稳定推进，最好带上：
+
+| 槽位 | 示例 |
+|---|---|
+| 项目名 | `项目名` |
+| 范围 | `SXXEXX_SEG007`、`SEG009-SEG012`、`EP01-EP05` |
+| 目标 | `生成关键帧`、`补Mimo音频`、`构建上传包`、`提交单段视频` |
+| 边界 | `不提交视频`、`只提交这一段`、`不要覆盖锁定资产` |
+| 验收状态 | `SHOT02-SHOT04 已通过`、`等待审片`、`本段成片通过` |
+| 特殊要求 | `必须保留干净场景参考`、`最多7图，硬上限9图`、`Seedan后处理后再抽尾帧` |
+
+## 什么时候应该停下来问我
+
+- 要花 即梦CLI/Seedance 视频点数。
+- 要替换锁定资产或当前通过链路。
+- 要提交超过一个视频段落。
+- 关键帧还没明确通过，却要进视频提交。
+- Seedance 7图软上限/9图硬上限导致必须省略人物、道具、线索或场景锚点。
+- Seedan 1080p/60fps 后处理缺失，却需要把尾帧接给下一段。
+- 用户材料和现有项目记录冲突。
+</textarea>
+
+  <script>
+    const source = document.getElementById("manualSource").value.replace(/\r\n/g, "\n");
+    const content = document.getElementById("content");
+    const toc = document.getElementById("toc");
+    const searchInput = document.getElementById("searchInput");
+    const emptyState = document.getElementById("emptyState");
+
+    function escapeHtml(value) {
+      return value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function inlineFormat(value) {
+      return escapeHtml(value).replace(/`([^`]+)`/g, "<code>$1</code>");
+    }
+
+    function slugFor(title, index) {
+      const ascii = title
+        .toLowerCase()
+        .replace(/[^a-z0-9\u4e00-\u9fa5]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+      return ascii || `section-${index}`;
+    }
+
+    function parseTable(lines) {
+      const rows = lines
+        .map(line => line.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map(cell => cell.trim()))
+        .filter(row => row.length > 1);
+      if (rows.length < 2) return "";
+      const header = rows[0];
+      const body = rows.slice(2);
+      return `<div class="table-wrap"><table><thead><tr>${header.map(cell => `<th>${inlineFormat(cell)}</th>`).join("")}</tr></thead><tbody>${body.map(row => `<tr>${row.map(cell => `<td>${inlineFormat(cell)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+    }
+
+    function renderMarkdown(markdown) {
+      const lines = markdown.split("\n");
+      let html = "";
+      let index = 0;
+      let sectionOpen = false;
+      let sectionIndex = 0;
+
+      function openSection(title) {
+        if (sectionOpen) html += "</section>";
+        const id = slugFor(title, sectionIndex++);
+        html += `<section class="manual-section" id="${id}" data-title="${escapeHtml(title)}"><h2>${inlineFormat(title)}</h2>`;
+        sectionOpen = true;
+      }
+
+      while (index < lines.length) {
+        const line = lines[index];
+        const trimmed = line.trim();
+
+        if (!trimmed) {
+          index++;
+          continue;
+        }
+
+        if (trimmed.startsWith("# ")) {
+          const title = trimmed.replace(/^#\s+/, "");
+          html += `<header class="hero"><h1>${inlineFormat(title)}</h1>`;
+          index++;
+          const intro = [];
+          while (index < lines.length && !lines[index].startsWith("## ")) {
+            if (lines[index].trim()) intro.push(lines[index].trim());
+            index++;
+          }
+          if (intro.length) html += `<p>${inlineFormat(intro.join(" "))}</p>`;
+          html += `<div class="stats" id="stats"></div></header>`;
+          continue;
+        }
+
+        if (trimmed.startsWith("## ")) {
+          openSection(trimmed.replace(/^##\s+/, ""));
+          index++;
+          continue;
+        }
+
+        if (trimmed.startsWith("### ")) {
+          if (!sectionOpen) openSection("快速开始");
+          html += `<h3>${inlineFormat(trimmed.replace(/^###\s+/, ""))}</h3>`;
+          index++;
+          continue;
+        }
+
+        if (trimmed.startsWith("```")) {
+          const lang = trimmed.replace(/^```/, "").trim();
+          index++;
+          const code = [];
+          while (index < lines.length && !lines[index].trim().startsWith("```")) {
+            code.push(lines[index]);
+            index++;
+          }
+          index++;
+          if (!sectionOpen) openSection("提示词");
+          html += `<div class="prompt" data-lang="${escapeHtml(lang)}"><button class="copy-button" type="button">复制</button><pre><code>${escapeHtml(code.join("\n"))}</code></pre></div>`;
+          continue;
+        }
+
+        if (trimmed.startsWith("|") && index + 1 < lines.length && /^\|?\s*:?-{3,}/.test(lines[index + 1].trim())) {
+          const tableLines = [];
+          while (index < lines.length && lines[index].trim().startsWith("|")) {
+            tableLines.push(lines[index]);
+            index++;
+          }
+          if (!sectionOpen) openSection("表格");
+          html += parseTable(tableLines);
+          continue;
+        }
+
+        if (trimmed.startsWith("- ")) {
+          const items = [];
+          while (index < lines.length && lines[index].trim().startsWith("- ")) {
+            items.push(lines[index].trim().replace(/^-\s+/, ""));
+            index++;
+          }
+          if (!sectionOpen) openSection("要点");
+          html += `<ul>${items.map(item => `<li>${inlineFormat(item)}</li>`).join("")}</ul>`;
+          continue;
+        }
+
+        const paragraph = [];
+        while (
+          index < lines.length &&
+          lines[index].trim() &&
+          !lines[index].startsWith("#") &&
+          !lines[index].trim().startsWith("- ") &&
+          !lines[index].trim().startsWith("|") &&
+          !lines[index].trim().startsWith("```")
+        ) {
+          paragraph.push(lines[index].trim());
+          index++;
+        }
+        if (!sectionOpen) openSection("说明");
+        html += `<p>${inlineFormat(paragraph.join(" "))}</p>`;
+      }
+
+      if (sectionOpen) html += "</section>";
+      return html;
+    }
+
+    function setupToc() {
+      toc.innerHTML = "";
+      document.querySelectorAll(".manual-section").forEach(section => {
+        const title = section.dataset.title || section.querySelector("h2")?.textContent || "";
+        const item = document.createElement("li");
+        const link = document.createElement("a");
+        link.href = `#${section.id}`;
+        link.textContent = title;
+        item.appendChild(link);
+        toc.appendChild(item);
+      });
+    }
+
+    function setupCopyButtons() {
+      document.querySelectorAll(".copy-button").forEach(button => {
+        button.addEventListener("click", async () => {
+          const code = button.nextElementSibling?.innerText || "";
+          try {
+            await navigator.clipboard.writeText(code);
+            button.textContent = "已复制";
+          } catch {
+            const holder = document.createElement("textarea");
+            holder.value = code;
+            document.body.appendChild(holder);
+            holder.select();
+            document.execCommand("copy");
+            holder.remove();
+            button.textContent = "已复制";
+          }
+          window.setTimeout(() => (button.textContent = "复制"), 1200);
+        });
+      });
+    }
+
+    function setupSearch() {
+      searchInput.addEventListener("input", () => {
+        const query = searchInput.value.trim().toLowerCase();
+        let visible = 0;
+        document.querySelectorAll(".manual-section").forEach(section => {
+          const hit = !query || section.textContent.toLowerCase().includes(query);
+          section.hidden = !hit;
+          if (hit) visible++;
+        });
+        emptyState.hidden = visible !== 0;
+      });
+    }
+
+    function setupStats() {
+      const stats = document.getElementById("stats");
+      const sectionCount = document.querySelectorAll(".manual-section").length;
+      const promptCount = document.querySelectorAll(".prompt").length;
+      const tableCount = document.querySelectorAll("table").length;
+      stats.innerHTML = `
+        <span class="chip">${sectionCount} 个章节</span>
+        <span class="chip">${promptCount} 条可复制提示词</span>
+        <span class="chip">${tableCount} 张速查表</span>
+      `;
+    }
+
+    content.innerHTML = renderMarkdown(source);
+    setupToc();
+    setupCopyButtons();
+    setupSearch();
+    setupStats();
+  </script>
+</body>
+</html>

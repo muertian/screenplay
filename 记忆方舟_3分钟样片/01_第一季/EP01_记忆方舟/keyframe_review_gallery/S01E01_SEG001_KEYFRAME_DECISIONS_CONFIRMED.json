@@ -1,0 +1,40 @@
+﻿{
+    "project":  "记忆方舟",
+    "episode":  "S01E01",
+    "segment_id":  "S01E01_SEG001",
+    "confirmed":  true,
+    "confirmed_at":  "2026-05-22",
+    "confirmed_by":  "user",
+    "source_message":  "确认",
+    "decision_scope":  "SEG001四张关键帧全部通过",
+    "keyframe_review_gallery":  "keyframe_review_gallery/index.html",
+    "contact_sheet":  "review_assets/S01E01_SEG001_contact_sheet.png",
+    "keyframes":  [
+                      {
+                          "shot":  "SHOT01",
+                          "keyframe_id":  "S01E01_SEG001_SHOT01_v01",
+                          "path":  "keyframes/S01E01_SEG001_SHOT01_v01.png",
+                          "decision":  "VISUAL_PASS"
+                      },
+                      {
+                          "shot":  "SHOT02",
+                          "keyframe_id":  "S01E01_SEG001_SHOT02_v01",
+                          "path":  "keyframes/S01E01_SEG001_SHOT02_v01.png",
+                          "decision":  "VISUAL_PASS"
+                      },
+                      {
+                          "shot":  "SHOT03",
+                          "keyframe_id":  "S01E01_SEG001_SHOT03_v01",
+                          "path":  "keyframes/S01E01_SEG001_SHOT03_v01.png",
+                          "decision":  "VISUAL_PASS"
+                      },
+                      {
+                          "shot":  "SHOT04",
+                          "keyframe_id":  "S01E01_SEG001_SHOT04_v01",
+                          "path":  "keyframes/S01E01_SEG001_SHOT04_v01.png",
+                          "decision":  "VISUAL_PASS"
+                      }
+                  ],
+    "video_submission_allowed":  false,
+    "next_gate":  "upload_package_viewer_user_confirmation"
+}

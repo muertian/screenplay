@@ -1,0 +1,30 @@
+{
+  "project": "记忆方舟",
+  "episode": "S01E01",
+  "decision_type": "reference_assets_user_confirmation",
+  "confirmed_at": "2026-05-22",
+  "confirmed_by": "user",
+  "user_message": "确认",
+  "result_status": "小样锁定",
+  "scope": "12 reference assets for pilot keyframe generation",
+  "assets": [
+    "CHAR_LC",
+    "CHAR_XH",
+    "CHAR_LUO",
+    "SCENE_ARK_GATE",
+    "SCENE_EXTRACTION_ROOM",
+    "SCENE_MEMORY_CORE",
+    "SCENE_WRECK",
+    "SCENE_WASTE_CITY",
+    "PROP_BLANK_CHIP",
+    "PROP_EXTRACTOR_CHAIR",
+    "PROP_ID_TAG",
+    "PROP_EARPIECE"
+  ],
+  "next_allowed_stage": "S01E01_SEG001 keyframe generation",
+  "video_submission_allowed": false,
+  "notes": [
+    "This confirmation unlocks still-image keyframe generation only.",
+    "Dreamina/Seedance video submission still requires keyframe approval, upload-package viewer, and a separate explicit user confirmation."
+  ]
+}

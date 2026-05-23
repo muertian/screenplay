@@ -1,0 +1,163 @@
+{
+    "project":  "记忆方舟",
+    "episode":  "S01E01",
+    "status":  "seg001_jimeng_web_manual_upload_package_ready",
+    "episode_spec":  {
+                         "runtime":  "约180秒",
+                         "segment_count":  12,
+                         "segment_duration_seconds":  15,
+                         "shots_per_segment":  4,
+                         "aspect_ratio":  "16:9",
+                         "platform":  "横屏审片/视频链路优先",
+                         "content_boundary":  "16+悬疑",
+                         "delivery_depth":  "样片链路"
+                     },
+    "providers":  {
+                      "still_images":  "$imagegen_builtin_image_gen",
+                      "audio":  "mimo_or_manifest_only",
+                      "video":  "dreamina_cli_seedance2"
+                  },
+    "current_locked_assets":  {
+                                  "characters":  [
+                                                     {
+                                                         "id":  "CHAR_LC",
+                                                         "name":  "陆沉",
+                                                         "path":  "EP01_记忆方舟/references/characters/CHAR_LC_ref_v01.png",
+                                                         "status":  "小样锁定",
+                                                         "sha256":  "c3ffa35303d13c32557ea75f11ee2b67795c3bd628432523190a653439acc0be"
+                                                     },
+                                                     {
+                                                         "id":  "CHAR_XH",
+                                                         "name":  "小禾",
+                                                         "path":  "EP01_记忆方舟/references/characters/CHAR_XH_ref_v01.png",
+                                                         "status":  "小样锁定",
+                                                         "sha256":  "f5773fa265522cd82dc4a8521905019a29e6fc909265b2c34bd692afcbd94980"
+                                                     },
+                                                     {
+                                                         "id":  "CHAR_LUO",
+                                                         "name":  "罗医师",
+                                                         "path":  "EP01_记忆方舟/references/characters/CHAR_LUO_ref_v01.png",
+                                                         "status":  "小样锁定",
+                                                         "sha256":  "6d2ad2a2bb0fe26a807606cb0aa35d53f3ec4edc880e7aca1576dc7e52a9a0d6"
+                                                     }
+                                                 ],
+                                  "scenes":  [
+                                                 {
+                                                     "id":  "SCENE_ARK_GATE",
+                                                     "name":  "方舟外墙与筛查门",
+                                                     "path":  "EP01_记忆方舟/references/scenes/SCENE_ARK_GATE_CLEAN_REF.png",
+                                                     "status":  "小样锁定",
+                                                     "sha256":  "75f89eac06f1567cd7c18c13aa8d3778696e67bc74ee84650e1c34d08c821c2e"
+                                                 },
+                                                 {
+                                                     "id":  "SCENE_EXTRACTION_ROOM",
+                                                     "name":  "记忆抽取室",
+                                                     "path":  "EP01_记忆方舟/references/scenes/SCENE_EXTRACTION_ROOM_CLEAN_REF.png",
+                                                     "status":  "小样锁定",
+                                                     "sha256":  "9ac8032b1333f3f601134186f0277b11ea5ffbbede12f8916a746abba3ea0db9"
+                                                 },
+                                                 {
+                                                     "id":  "SCENE_MEMORY_CORE",
+                                                     "name":  "记忆核心竖井",
+                                                     "path":  "EP01_记忆方舟/references/scenes/SCENE_MEMORY_CORE_CLEAN_REF.png",
+                                                     "status":  "小样锁定",
+                                                     "sha256":  "908d10f647a8f186b07367c71fa59afb9da5041003841dfeefaa4da701f74900"
+                                                 },
+                                                 {
+                                                     "id":  "SCENE_WRECK",
+                                                     "name":  "废弃装甲车车厢",
+                                                     "path":  "EP01_记忆方舟/references/scenes/SCENE_WRECK_CLEAN_REF.png",
+                                                     "status":  "小样锁定",
+                                                     "sha256":  "f84ed83c9778056e84229af0006a4b58a818cc3ec19387542667a74c5468f5c4"
+                                                 },
+                                                 {
+                                                     "id":  "SCENE_WASTE_CITY",
+                                                     "name":  "废城外景",
+                                                     "path":  "EP01_记忆方舟/references/scenes/SCENE_WASTE_CITY_CLEAN_REF.png",
+                                                     "status":  "小样锁定",
+                                                     "sha256":  "720fb0c47d5a8f8204163e295c379748c4579dfe6ae183404bbc63db3f5db588"
+                                                 }
+                                             ],
+                                  "props":  [
+                                                {
+                                                    "id":  "PROP_BLANK_CHIP",
+                                                    "name":  "空白记忆晶片",
+                                                    "path":  "EP01_记忆方舟/references/props/PROP_BLANK_CHIP_v01.png",
+                                                    "status":  "小样锁定",
+                                                    "sha256":  "2f2f578faba68451f6dd106cc6d0107e7855097f8e593c5d3c81768428345117"
+                                                },
+                                                {
+                                                    "id":  "PROP_ID_TAG",
+                                                    "name":  "磨损身份牌",
+                                                    "path":  "EP01_记忆方舟/references/props/PROP_ID_TAG_v01.png",
+                                                    "status":  "小样锁定",
+                                                    "sha256":  "613b1922d70f258349e60e08457f7780a1060f58db55587c158f15902a45c8d4"
+                                                },
+                                                {
+                                                    "id":  "PROP_EARPIECE",
+                                                    "name":  "破损通讯耳机",
+                                                    "path":  "EP01_记忆方舟/references/props/PROP_EARPIECE_v01.png",
+                                                    "status":  "小样锁定",
+                                                    "sha256":  "1372034e1284ab7deb3d4841fb7ba85ee4699689d6868844d135fa191055f4d6"
+                                                },
+                                                {
+                                                    "id":  "PROP_EXTRACTOR_CHAIR",
+                                                    "name":  "记忆抽取椅",
+                                                    "path":  "EP01_记忆方舟/references/props/PROP_EXTRACTOR_CHAIR_v01.png",
+                                                    "status":  "小样锁定",
+                                                    "sha256":  "175f56da15c06fad20fe97e5b516bf34a9a7b31cdabdaf87a7af062258b1947f"
+                                                }
+                                            ],
+                                  "keyframes":  [
+                                                    {
+                                                        "id":  "IMG_S01E01_SEG001_SHOT01",
+                                                        "shot":  "S01E01_SEG001_SHOT01",
+                                                        "path":  "EP01_记忆方舟/keyframes/S01E01_SEG001_SHOT01_v01.png",
+                                                        "status":  "小样锁定",
+                                                        "sha256":  "fdd9449d41a52aa20252d1df81cd3b68c41ef05a477cbea1e5a9035741ac5f5a"
+                                                    },
+                                                    {
+                                                        "id":  "IMG_S01E01_SEG001_SHOT02",
+                                                        "shot":  "S01E01_SEG001_SHOT02",
+                                                        "path":  "EP01_记忆方舟/keyframes/S01E01_SEG001_SHOT02_v01.png",
+                                                        "status":  "小样锁定",
+                                                        "sha256":  "b38fd914d21a5aad79216e099ee1451ac2fcc8780924c3b721c66a73d2065550"
+                                                    },
+                                                    {
+                                                        "id":  "IMG_S01E01_SEG001_SHOT03",
+                                                        "shot":  "S01E01_SEG001_SHOT03",
+                                                        "path":  "EP01_记忆方舟/keyframes/S01E01_SEG001_SHOT03_v01.png",
+                                                        "status":  "小样锁定",
+                                                        "sha256":  "61ad0355a062a5a974dc4b13f99d4c97948e819e2efedd7441f351aef024cdb1"
+                                                    },
+                                                    {
+                                                        "id":  "IMG_S01E01_SEG001_SHOT04",
+                                                        "shot":  "S01E01_SEG001_SHOT04",
+                                                        "path":  "EP01_记忆方舟/keyframes/S01E01_SEG001_SHOT04_v01.png",
+                                                        "status":  "小样锁定",
+                                                        "sha256":  "92d1f61a51c1a43c23c19a679f9c48b945b4e03316a139e6d62911ebaa1b417f"
+                                                    }
+                                                ],
+                                  "audio":  [
+
+                                            ]
+                              },
+    "blocked_until":  [
+                          "user_uploads_in_jimeng_web_and_returns_video"
+                      ],
+    "video_submission_allowed":  false,
+    "seg001_upload_package":  {
+                                  "path":  "EP01_记忆方舟/upload_packages/S01E01_SEG001/03_PACKAGE_MANIFEST.json",
+                                  "viewer_path":  "EP01_记忆方舟/upload_packages/S01E01_SEG001/upload_package_viewer/index.html",
+                                  "viewer_confirmation":  "EP01_记忆方舟/upload_packages/S01E01_SEG001/upload_package_viewer/UPLOAD_PACKAGE_VIEWER_CONFIRMATION.json",
+                                  "status":  "video_blocked_account_not_maestro_vip",
+                                  "video_submission_allowed":  false
+                              },
+    "seg001_jimeng_web_upload_package":  {
+                                             "path":  "EP01_记忆方舟/jimeng_web_upload_packages/S01E01_SEG001_manual_web",
+                                             "manifest":  "EP01_记忆方舟/jimeng_web_upload_packages/S01E01_SEG001_manual_web/WEB_UPLOAD_MANIFEST.json",
+                                             "prompt":  "EP01_记忆方舟/jimeng_web_upload_packages/S01E01_SEG001_manual_web/02_prompt/COPY_THIS_PROMPT_TO_JIMENG.txt",
+                                             "image_folder":  "EP01_记忆方舟/jimeng_web_upload_packages/S01E01_SEG001_manual_web/01_images_upload_in_order",
+                                             "status":  "ready_for_user_web_upload"
+                                         }
+}
